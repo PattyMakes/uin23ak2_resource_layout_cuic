@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="websidestyle.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <header>
+        <h1>ressursarkiv</h1>
+    </header>
+    <div id="tabMenu">
+      <ul id="tabs">
+      </ul>
+      <div id="tabContent">
+      </div>
+    </div>
+    <script src="ressurser.js"></script>
+    <script>
+      const tabMenu = document.getElementById("tabMenu");
+      const tabs = document.getElementById("tabs");
+      const tabContent = document.getElementById("tabContent");
+ 
+      resources.forEach(function(resource, index) {
+      const tab = document.createElement("li");
+      tab.innerHTML = `<a href="#${resource.category}">${resource.category}</a>`;
+      tabs.appendChild(tab);
+  
+      const content = document.createElement("div");
+      content.id = resource.category;
+      content.innerHTML = `<h2>${resource.category}</h2><p>${resource.text}</p>`;
+  
+      const sourcesList = document.createElement("ul");
+      resource.sources.forEach(function(source) {
+          const sourceItem = document.createElement("li");
+          sourceItem.innerHTML = `<a href="${source.url}">${source.title}</a>`;
+          sourcesList.appendChild(sourceItem);
+      })
+
+      content.appendChild(sourcesList);
+      tabContent.appendChild(content);
+  
+      tab.addEventListener("click", function() {
+          const activeTabs = tabMenu.querySelectorAll(".active");
+          activeTabs.forEach(function(activeTab) {
+              activeTab.classList.remove("active");
+          });
+          tab.classList.add("active");
+          content.classList.add("active");
+      })
+  
+      if (index === 0) {
+          tab.classList.add("active");
+          content.classList.add("active");
+      }
+  })
+    </script>
+    </div>
+</body>
+</html>
