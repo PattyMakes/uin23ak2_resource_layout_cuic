@@ -25,9 +25,9 @@
     <!--KILDE: https://www.w3schools.com/js/js_htmldom_eventlistener.asp-->
     <script>
         resources.forEach(function(resource, index) {
-        const tab = document.createElement("li");
-        tab.innerHTML = `<a href="#${resource.category}">${resource.category}</a>`;
-        tabs.appendChild(tab);
+           const tab = document.createElement("li");
+           tab.innerHTML = `<a href="#${resource.category}">${resource.category}</a>`;
+           tabs.appendChild(tab);
   
         const content = document.createElement("div");
         content.id = resource.category;
@@ -35,26 +35,26 @@
   
         const sourcesList = document.createElement("ul");
         resource.sources.forEach(function(source) {
-        const sourceItem = document.createElement("li");
-        sourceItem.innerHTML = `<a href="${source.url}">${source.title}</a>`;
-        sourcesList.appendChild(sourceItem);
+           const sourceItem = document.createElement("li");
+           sourceItem.innerHTML = `<a href="${source.url}">${source.title}</a>`;
+           sourcesList.appendChild(sourceItem);
       })
 
         content.appendChild(sourcesList);
         tabContent.appendChild(content);
   
         tab.addEventListener("click", function() {
-          const activeTabs = tabMenu.querySelectorAll(".active");
-          activeTabs.forEach(function(activeTab) {
-              activeTab.classList.remove("active");
+            const activeTabs = tabMenu.querySelectorAll(".active");
+            activeTabs.forEach(function(activeTab) {
+            activeTab.classList.remove("active");
           });
-          tab.classList.add("active");
-          content.classList.add("active");
+            tab.classList.add("active");
+            content.classList.add("active");
       })
   
         if(index === 0) {
-           tab.classList.add("active");
-           content.classList.add("active");
+            tab.classList.add("active");
+            content.classList.add("active");
         }
   })
     </script>
