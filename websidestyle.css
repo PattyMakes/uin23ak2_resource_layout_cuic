@@ -1,3 +1,4 @@
+/* took inspiration fra Lego Dudes oppgaven vi hadde i timen, å gjorde om til mitt eget */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap');
 
 :root {
@@ -60,9 +61,9 @@ header {
     text-transform: uppercase;
     transition: ease-in-out .4s;
     margin-right: 10px;
-    border-top: 2px solid var(--lightgray);
-    border-left: 2px solid var(--lightgray);
-    border-right: 2px solid var(--lightgray); 
+    border-top: 1px solid var(--lightgray);
+    border-left: 1px solid var(--lightgray);
+    border-right: 1px solid var(--lightgray); 
     background-color:#ebebeb;
 }
 
